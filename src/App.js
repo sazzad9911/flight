@@ -6,13 +6,45 @@ import { BiTransferAlt } from "react-icons/bi";
 import DateInput from "./components/DateInput";
 import BasicMenu from "./components/Menu";
 
-const PASS=[
+const PASS = [
   {
-      element:<div>
-        <div></div>
+    element: (
+      <div className="flex gap-10 items-center">
+        <div>
+          <div className=" font-medium">Adult</div>
+          <div>>12 Years</div>
+        </div>
+        <div className="flex items-center gap-2 font-medium">
+          <div className="w-5 h-5 flex justify-center items-center rounded-sm bg-gray-300">
+            -
+          </div>
+          1
+          <div className="w-5 h-5 flex justify-center items-center rounded-sm bg-green-300">
+            +
+          </div>
+        </div>
       </div>
-  }
-]
+    ),
+  },
+];
+const ECO = [
+  {
+    element: <div>Economy</div>,
+  },
+];
+const CARD = [
+  {
+    element: (
+      <div className="flex-1">
+        <div className="flex-1 w-[300px] flex">
+          By Selecting One Or More (Max 10) Payment Types, Prices On Wego Will
+          Include Applicable Minimum Payment Fee. Please Note That Not All
+          Providers Support All Payment Types.
+        </div>
+      </div>
+    ),
+  },
+];
 function App() {
   const [type, setType] = useState("OneWay");
   return (
@@ -54,18 +86,13 @@ function App() {
               <BiTransferAlt className=" text-gray-400" size={25} />
             </div>
             <SuggestInput placeholder={"To"} className={"flex-1"} />
-            <DateInput
-              placeholder={"Depart"}
-              className={"w-full md:flex-1"}
-            />
+            <DateInput placeholder={"Depart"} className={"w-full md:flex-1"} />
           </div>
           <div className="flex justify-end items-center gap-4">
-            <BasicMenu data={PASS} title={`Passenger`}/>
-            <BasicMenu title={`Economy`}/>
-            <BasicMenu title={`4 Payment types`}/>
-            <div className=" bg-green-400 px-4 py-2  rounded-3xl">
-              Search
-            </div>
+            <BasicMenu data={PASS} title={`Passenger`} />
+            <BasicMenu data={ECO} title={`Economy`} />
+            <BasicMenu data={CARD} title={`4 Payment types`} />
+            <div className=" bg-green-400 px-4 py-2  rounded-3xl">Search</div>
           </div>
         </div>
       </div>

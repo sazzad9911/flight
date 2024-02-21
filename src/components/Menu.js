@@ -48,7 +48,7 @@ export default function BasicMenu({ title, data, onClick }) {
             {doc.element}
           </MenuItem>
         ))}
-        <div onClick={handleClose} className="text-green-500">
+        <div onClick={handleClose} className="text-green-500 mx-4 my-1">
           Apply
         </div>
       </Menu>
