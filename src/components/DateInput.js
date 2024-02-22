@@ -4,13 +4,13 @@ import DatePicker from "react-multi-date-picker";
 import "react-multi-date-picker/styles/layouts/prime.css";
 import DatePickerHeader from "react-multi-date-picker/plugins/date_picker_header"
 
-export default function DateInput({ className, placeholder, onClick }) {
+export default function DateInput({ className, placeholder, onClick,disabled,innerRef }) {
   const [focus, onFocus] = useState(false);
   const ref = useRef();
   const [values, setValues] = useState(new Date());
 
   return (
-    <DatePicker inputClass={`border border-gray-200 focus:outline-green-400 rounded-md px-2 py-4 w-full`}
+    <DatePicker ref={innerRef} inputClass={`border border-gray-200 focus:outline-green-400 rounded-md px-2 py-4 w-full`}
         numberOfMonths={2}
         plugins={[
             <DatePickerHeader />
@@ -19,7 +19,10 @@ export default function DateInput({ className, placeholder, onClick }) {
        calendarPosition={`left-start`}
         fixMainPosition={true}
         fixRelativePosition={true}
-        onChange={setValues}
+        onChange={e=>{
+          setValues(e)
+          onClick&&onClick(e)
+        }}
        
       />
   );
